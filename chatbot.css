@@ -1,0 +1,11 @@
+
+#title {
+	padding-top: 20px; 
+	text-align: center; 
+}
+
+#chatbot-container {
+	background-image: url("images/flowchart.png"); 
+	background-size: cover; 
+	height: 100vh; 
+} 
