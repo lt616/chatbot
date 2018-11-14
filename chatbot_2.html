@@ -52,7 +52,7 @@
     		<div id="chat-window"> 
 				<form id="chatboard" action="https://3ft1w3clgd.execute-api.us-west-2.amazonaws.com/complete_with_key/chatbot" method="POST" class="row">
 				  	<div class="form-group col-lg-9"> 
-				  		<textarea id="user-message" width="100%" class="form-control" rows="3"></textarea> 
+				  		<textarea id="user-message" width="100%" class="form-control" rows="3" id="comment"></textarea> 
 				  	</div> 
 				  	<div class="col-lg-3"> 
 				  		<button id="btn-send" type="submit" class="btn btn-primary">Submit</button>
@@ -83,18 +83,15 @@
 		var user_li_close_tag = "</div> </li>"; 
 
 		$("#chat-history").append(user_li_open_tag + document.getElementById("user-message").value + user_li_close_tag); 
-
-		var formData = {
-		    'message' : $('#user-message').val()
-		};
-
+		document.getElementById("user-message").value = ""; 
+		
 	    $.ajax({
 	        url: $(this).attr('action'),
 	        type: $(this).attr('method'), 
 	        headers: { 
 	        	"x-api-key": 'y1cZom6EgK5lOLIQUeZjH8v5In4YFEnQ9hM0ACTQ'
 	        }, 
-	        data: JSON.stringify(formData), 
+	        data: $(this).serialize(), 
 	        success: function(data) { 
 	        	$("#chat-history").append(robot_li_open_tag + robot_avatar_tag + robot_text_open_tag + data.body.messages[0].unstructured.text + robot_text_close_tag + '</li>' + robot_li_close_tag);
 	        	// alert(data.body.messages[0].unstructured.text); 
@@ -102,9 +99,6 @@
   				elem.scrollTop = elem.scrollHeight;
 	        }
 	    }); 
-
-		document.getElementById("user-message").value = ""; 
-
 	});
 </script> 
 
