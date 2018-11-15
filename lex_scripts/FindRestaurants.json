@@ -1,0 +1,130 @@
+{
+    "confirmationPrompt": {
+        "maxAttempts": 2,
+        "messages": [
+            {
+                "content": "You're all set. Expect my recommendation shortly! Have a good day.",
+                "contentType": "PlainText"
+            }
+        ]
+    },
+    "name": "FindRestaurants",
+    "rejectionStatement": {
+        "messages": [
+            {
+                "content": "Okay, I will not place your order.",
+                "contentType": "PlainText"
+            }
+        ]
+    },
+    "sampleUtterances": [
+        "I would like to book a restaurant",
+        "I want to find a restaurant",
+        "I need some restaurant suggestions",
+        "I would like to order some meals"
+    ],
+    "slots": [
+        {
+            "slotType": "AMAZON.US_CITY",
+            "name": "MealLocation",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+                "maxAttempts": 2,
+                "messages": [
+                    {
+                        "content": "Great. I can help you with that. What city or city area are you looking to dine in?",
+                        "contentType": "PlainText"
+                    }
+                ]
+            },
+            "priority": 1,
+            "description": "The location for eating"
+        },
+        {
+            "slotType": "CuisineTypes",
+            "name": "MealCuisine",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+                "maxAttempts": 2,
+                "messages": [
+                    {
+                        "content": "Got it, {MealLocation}. What cuisine would you like to try?",
+                        "contentType": "PlainText"
+                    }
+                ]
+            },
+            "slotTypeVersion": "$LATEST",
+            "priority": 2,
+            "description": "The cuisine to eat"
+        },
+        {
+            "slotType": "AMAZON.NUMBER",
+            "name": "ClientNum",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+                "maxAttempts": 2,
+                "messages": [
+                    {
+                        "content": "Ok, how many people are in your party?",
+                        "contentType": "PlainText"
+                    }
+                ]
+            },
+            "priority": 3,
+            "description": "Number of clients"
+        },
+        {
+            "slotType": "AMAZON.DATE",
+            "name": "MealDate",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+                "maxAttempts": 2,
+                "messages": [
+                    {
+                        "content": "A few more to go. What date?",
+                        "contentType": "PlainText"
+                    }
+                ]
+            },
+            "priority": 4,
+            "description": "The date for eating"
+        },
+        {
+            "slotType": "AMAZON.TIME",
+            "name": "MealTime",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+                "maxAttempts": 2,
+                "messages": [
+                    {
+                        "content": "What time?",
+                        "contentType": "PlainText"
+                    }
+                ]
+            },
+            "priority": 5,
+            "description": "The time for eating"
+        }, 
+        {
+            "slotType": "AMAZON.PhoneNumber",
+            "name": "ClientPhoneNum",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+                "maxAttempts": 2,
+                "messages": [
+                    {
+                        "content": "Great. Lastly, I need your phone number so I can send you my findings",
+                        "contentType": "PlainText"
+                    }
+                ]
+            },
+            "priority": 6,
+            "description": "The phone number of client to contact with"
+        }
+    ],
+    "fulfillmentActivity": {
+        "type": "ReturnIntent"
+    },
+    "description": "Intent to book a restaurant"
+} 
+

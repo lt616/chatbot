@@ -1,0 +1,42 @@
+{
+    "enumerationValues": [
+        {
+            "value": "Chinese"
+        },
+        {
+            "value": "Japanese"
+        },
+        {
+            "value": "Italian"
+        },
+        {
+            "value": "Korean"
+        },
+        {
+            "value": "French"
+        },
+        {
+            "value": "Spanish"
+        },
+        {
+            "value": "Indian"
+        },
+        {
+            "value": "British"
+        },
+        {
+            "value": "Greek"
+        },
+        {
+            "value": "Mexican"
+        },
+        {
+            "value": "American"
+        },
+        {
+            "value": "Turkish"
+        }
+    ],
+    "name": "CuisineTypes",
+    "description": "Types of cuisine for eating"
+}
